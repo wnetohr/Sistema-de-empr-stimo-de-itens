@@ -9,6 +9,7 @@ public class Livros implements ItemAbstrato {
     String descricao;
     String autor;
     int numeroPaginas;
+    int quantidadeDisponivel;
 
     //Construtores
     public Livros(String nome, String descricao, int numeroPaginas) {
@@ -55,5 +56,13 @@ public class Livros implements ItemAbstrato {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public int getQuantidadeDisponivel() {
+        return quantidadeDisponivel;
+    }
+
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+        this.quantidadeDisponivel = quantidadeDisponivel;
     }
 }

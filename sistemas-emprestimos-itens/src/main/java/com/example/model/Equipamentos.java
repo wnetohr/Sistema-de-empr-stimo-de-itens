@@ -9,6 +9,7 @@ public class Equipamentos implements ItemAbstrato {
     String descricao;
     String fabricante;
     String especificacaoTecnica;
+    int quantidadeDisponivel;
 
     //Funções
     public void emprestar() {
@@ -48,5 +49,13 @@ public class Equipamentos implements ItemAbstrato {
 
     public void setEspecificacaoTecnica(String especificacaoTecnica) {
         this.especificacaoTecnica = especificacaoTecnica;
+    }
+
+    public int getQuantidadeDisponivel() {
+        return quantidadeDisponivel;
+    }
+
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+        this.quantidadeDisponivel = quantidadeDisponivel;
     }
 }

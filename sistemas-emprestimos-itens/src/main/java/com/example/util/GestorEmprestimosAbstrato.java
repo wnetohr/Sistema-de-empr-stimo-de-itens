@@ -3,7 +3,7 @@ import java.util.List;
 
 import com.example.model.Usuario;
 
-public abstract class GestorEmprestimos {
+public abstract class GestorEmprestimosAbstrato {
     protected List<ItemAbstrato> itensDisponiveis;
     protected List<ItemAbstrato> itensEmprestados;
 

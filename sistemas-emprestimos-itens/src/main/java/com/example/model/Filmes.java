@@ -8,7 +8,9 @@ public class Filmes implements ItemAbstrato {
     String nome;
     String descricao;
     String diretor;
+    String genero;
     int duracaoEmMinutos;
+    int quantidadeDisponivel;
 
     //Funções
     public void emprestar() {
@@ -48,5 +50,21 @@ public class Filmes implements ItemAbstrato {
 
     public void setDuracaoEmMinutos(int duracaoEmMinutos) {
         this.duracaoEmMinutos = duracaoEmMinutos;
+    }
+
+    public int getQuantidadeDisponivel() {
+        return quantidadeDisponivel;
+    }
+
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+        this.quantidadeDisponivel = quantidadeDisponivel;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }
