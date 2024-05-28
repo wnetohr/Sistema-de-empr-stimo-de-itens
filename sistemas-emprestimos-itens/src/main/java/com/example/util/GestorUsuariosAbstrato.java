@@ -13,5 +13,5 @@ public interface GestorUsuariosAbstrato {
     Map<Long, Usuario> mapaUsuarios = new HashMap<>();
 
     public abstract void cadastrarUsuario();
-
+    public abstract void adicionarUsuarioNalista();
 }

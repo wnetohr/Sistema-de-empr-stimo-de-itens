@@ -7,9 +7,9 @@ import com.example.util.ItemAbstrato;
 public class Usuario {
 
     //Atributos
-    String nome;
-    int cpf;
-    List<ItemAbstrato> listaItens;
+    private String nome;
+    private int cpf;
+    protected  List<ItemAbstrato> listaItens;
 
     //Construtor
     public Usuario(String nome, int cpf, List<ItemAbstrato> listaItens) {
@@ -19,7 +19,13 @@ public class Usuario {
     }
 
     //Funções
+    public void adicionarItem(ItemAbstrato item) {
+        listaItens.add(item);
+    }
 
+    public void removerItem(ItemAbstrato item) {
+        listaItens.remove(item);
+    }
     //Get e Set
 
     public String getNome() {
