@@ -12,6 +12,8 @@ public class Usuario {
     protected  List<ItemAbstrato> listaItens;
 
     //Construtor
+    public Usuario(){}
+
     public Usuario(String nome, int cpf, List<ItemAbstrato> listaItens) {
         this.nome = nome;
         this.cpf = cpf;

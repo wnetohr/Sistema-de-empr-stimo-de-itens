@@ -9,6 +9,8 @@ public class GestorEmprestimo {
     protected List<ItemAbstrato> itensDisponiveis;
     protected List<ItemAbstrato> itensEmprestados;
 
+    public GestorEmprestimo(){}
+
     public GestorEmprestimo(List<ItemAbstrato> itensDisponiveis, List<ItemAbstrato> itensEmprestados) {
         this.itensDisponiveis = itensDisponiveis;
         this.itensEmprestados = itensEmprestados;
@@ -17,12 +19,16 @@ public class GestorEmprestimo {
     public void emprestarItem(ItemAbstrato item, Usuario usuario) {
         if (itensDisponiveis.contains(item)) {
             usuario.adicionarItem(item);
+            itensDisponiveis.remove(item);
+            itensEmprestados.add(item);
         }
     }
 
     public void devolverItem(ItemAbstrato item, Usuario usuario) {
         if (usuario.listaItens.contains(item)) {
             usuario.removerItem(item);
+            itensDisponiveis.add(item);
+            itensEmprestados.remove(item);
         }
     }
 }

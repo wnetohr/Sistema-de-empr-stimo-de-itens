@@ -11,6 +11,9 @@ public class Equipamentos implements ItemAbstrato {
     String especificacaoTecnica;
     int quantidadeDisponivel;
 
+    //Construtor
+    public Equipamentos() {
+    }
     //Funções
     public void emprestar() {
     }
