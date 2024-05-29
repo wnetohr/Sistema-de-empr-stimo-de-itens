@@ -1,5 +1,7 @@
 package com.example.model;
 
+import java.util.Scanner;
+
 import com.example.util.ItemAbstrato;
 
 public class Jogos implements ItemAbstrato {
@@ -12,7 +14,29 @@ public class Jogos implements ItemAbstrato {
     String plataforma;
     int quantidadeDisponivel;
 
+    //Construtor
+    public Jogos() {
+    }
+
     //Funções
+    public void cadastrar() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome do jogo: ");
+        this.nome = sc.nextLine();
+        System.out.println("Digite a descrição do jogo: ");
+        this.descricao = sc.nextLine();
+        System.out.println("Digite a desenvolvedora do jogo: ");
+        this.descricao = sc.nextLine();
+        System.out.println("Digite o gênero do jogo: ");
+        this.genero = sc.nextLine();
+        System.out.println("Digite a plataforma do jogo: ");
+        this.plataforma = sc.nextLine();
+        System.out.println("Digite a quantidade de jogos: ");
+        this.quantidadeDisponivel = sc.nextInt();
+        sc.nextLine();
+        sc.close();
+    }
+
     public void emprestar() {
     }
 

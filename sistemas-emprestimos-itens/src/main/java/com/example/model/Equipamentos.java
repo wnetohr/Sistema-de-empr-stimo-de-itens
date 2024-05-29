@@ -1,5 +1,7 @@
 package com.example.model;
 
+import java.util.Scanner;
+
 import com.example.util.ItemAbstrato;
 
 public class Equipamentos implements ItemAbstrato {
@@ -15,6 +17,21 @@ public class Equipamentos implements ItemAbstrato {
     public Equipamentos() {
     }
     //Funções
+    public void cadastrar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome do equipamento: ");
+        this.nome = sc.nextLine();
+        System.out.println("Digite a descrição do equipamento: ");
+        this.descricao = sc.nextLine();
+        System.out.println("Digite o fabricante do equipamento: ");
+        this.fabricante = sc.nextLine();
+        System.out.println("Digite as especificações técnicas do equipamento: ");
+        this.especificacaoTecnica = sc.nextLine();
+        System.out.println("Digite a quantidade de equipamentos a serem cadastrados: ");
+        this.quantidadeDisponivel = sc.nextInt();
+        sc.nextLine();
+        sc.close();
+    }
     public void emprestar() {
     }
 

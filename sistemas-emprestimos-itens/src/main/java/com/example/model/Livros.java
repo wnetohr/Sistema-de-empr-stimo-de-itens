@@ -1,5 +1,7 @@
 package com.example.model;
 
+import java.util.Scanner;
+
 import com.example.util.ItemAbstrato;
 
 public class Livros implements ItemAbstrato {
@@ -12,13 +14,33 @@ public class Livros implements ItemAbstrato {
     int quantidadeDisponivel;
 
     //Construtores
-    public Livros(String nome, String descricao, int numeroPaginas) {
+    public Livros(){}
+    
+    public Livros(String nome, String descricao,String autor, int numeroPaginas, int quantidadeDisponivel) {
         this.nome = nome;
         this.descricao = descricao;
+        this.autor = autor;
         this.numeroPaginas = numeroPaginas;
+        this.quantidadeDisponivel = quantidadeDisponivel;
     }
 
     //Funções
+    public void cadastrar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome do livro: ");
+        this.nome = sc.nextLine();
+        System.out.println("Digite a descrição do livro: ");
+        this.descricao = sc.nextLine();
+        System.out.println("Digite o nome do autor do livro: ");
+        this.autor = sc.nextLine();
+        System.out.println("Digite o número de páginas do livro: ");
+        this.numeroPaginas = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Digite a quantidade de livros: ");
+        this.quantidadeDisponivel = sc.nextInt();
+        sc.nextLine();
+        sc.close();
+    }
     public void emprestar() {
     }
 
