@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.example.util.MenuSistemaAbstrato;
 
 public class MenuSistema implements MenuSistemaAbstrato {
-    //Atributos
 
     //Construtor
     public MenuSistema() {
@@ -24,19 +23,19 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o número da opção deseja: ");
     }
 
-    public void selecionarOpcao() {
+    public void selecionarOpcao(GestorEmprestimo gestorEmprestimo) {
         Scanner sc = new Scanner(System.in);
         exibirOpcoes();
         String opcao = sc.nextLine();
         switch (opcao) {
             case "1":
-                casdastroItem();
+                casdastroItem(gestorEmprestimo);
                 break;
             case "2":
                 casdastroUsuario();
                 break;
             case "3":
-                exibirItensDisponiveis();
+                exibirItensDisponiveis(gestorEmprestimo);
                 break;
             case "4":
                 exibirUsuarios();
@@ -48,25 +47,40 @@ public class MenuSistema implements MenuSistemaAbstrato {
         sc.close();
     }
 
-    public void casdastroItem() {
+    public void casdastroItem(GestorEmprestimo gestorEmprestimo) {
         Scanner sc = new Scanner(System.in);
+        //GestorEmprestimo gestorEmprestimo = new GestorEmprestimo();
         categoriasItem();
         String categoria = sc.nextLine();
         switch (categoria) {
             case "1":
+                Equipamentos equipamento = new Equipamentos();
+                equipamento.cadastrar();
+                gestorEmprestimo.cadastrarProduto(equipamento);
                 break;
             case "2":
+                Filmes filme = new Filmes();
+                filme.cadastrar();
+                gestorEmprestimo.cadastrarProduto(filme);
                 break;
             case "3":
+                Jogos jogo = new Jogos();
+                jogo.cadastrar();
+                gestorEmprestimo.cadastrarProduto(jogo);
                 break;
             case "4":
+                Livros livro = new Livros();
+                livro.cadastrar();
+                gestorEmprestimo.cadastrarProduto(livro);
                 break;
             case "5":
-                selecionarOpcao();
+                selecionarOpcao(gestorEmprestimo);
                 break;
 
         }
         sc.close();
+        selecionarOpcao(gestorEmprestimo);
+
     }
 
     public void categoriasItem() {
@@ -83,7 +97,8 @@ public class MenuSistema implements MenuSistemaAbstrato {
     public void casdastroUsuario() {
     }
 
-    public void exibirItensDisponiveis() {
+    public void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo) {
+        System.out.println(gestorEmprestimo.itensDisponiveis);
     }
 
     public void exibirUsuarios() {

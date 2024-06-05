@@ -1,19 +1,28 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.example.util.GestorEmprestimoAbstrato;
 import com.example.util.ItemAbstrato;
 
-public class GestorEmprestimo {
+public class GestorEmprestimo implements GestorEmprestimoAbstrato {
 
     protected List<ItemAbstrato> itensDisponiveis;
     protected List<ItemAbstrato> itensEmprestados;
 
-    public GestorEmprestimo(){}
+    public GestorEmprestimo() {
+        this.itensDisponiveis = new ArrayList<ItemAbstrato>();
+        this.itensEmprestados = new ArrayList<ItemAbstrato>();
+    }
 
     public GestorEmprestimo(List<ItemAbstrato> itensDisponiveis, List<ItemAbstrato> itensEmprestados) {
         this.itensDisponiveis = itensDisponiveis;
         this.itensEmprestados = itensEmprestados;
+    }
+
+    public void cadastrarProduto(ItemAbstrato item) {
+        itensDisponiveis.add(item);
     }
 
     public void emprestarItem(ItemAbstrato item, Usuario usuario) {

@@ -1,1 +1,13 @@
+com\example\model\Equipamentos.class
+com\example\util\MenuSistemaAbstrato.class
+com\example\util\ItemAbstrato.class
+com\example\util\GestorUsuariosAbstrato.class
+com\example\model\Jogos.class
+com\example\model\GestorUsuarios.class
+com\example\model\Livros.class
+com\example\util\GestorEmprestimoAbstrato.class
+com\example\model\MenuSistema.class
 com\example\App.class
+com\example\model\Filmes.class
+com\example\model\GestorEmprestimo.class
+com\example\model\Usuario.class

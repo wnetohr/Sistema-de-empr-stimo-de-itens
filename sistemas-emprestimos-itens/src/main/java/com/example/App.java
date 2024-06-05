@@ -1,13 +1,13 @@
 package com.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import com.example.model.GestorEmprestimo;
+import com.example.model.MenuSistema;
+
+public class App {
+
+    public static void main(String[] args) {
+        GestorEmprestimo gestorEmprestimo = new GestorEmprestimo();
+        MenuSistema menu = new MenuSistema();
+        menu.selecionarOpcao(gestorEmprestimo);
     }
 }
