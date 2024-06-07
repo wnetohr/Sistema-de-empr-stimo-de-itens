@@ -1,3 +1,4 @@
+// -*- coding: utf-8 -*-
 package com.example.model;
 
 import java.util.Scanner;
@@ -15,12 +16,12 @@ public class MenuSistema implements MenuSistemaAbstrato {
     public void exibirOpcoes() {
         System.out.println("----- Menu -----");
         System.out.println("1. Cadastrar produto");
-        System.out.println("2. Cadastrar usuário");
-        System.out.println("3. Exibir itens disponíveis");
-        System.out.println("4. Exibir usuários");
+        System.out.println("2. Cadastrar usu\u00E1rio");
+        System.out.println("3. Exibir itens dispon\u00EDveis");
+        System.out.println("4. Exibir usu\u00E1rios");
         System.out.println("5. Sair do sistema");
         System.out.println("----------------");
-        System.out.println("Digite o número da opção deseja: ");
+        System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
     }
 
     public void selecionarOpcao(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
@@ -86,7 +87,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("4. Livros");
         System.out.println("5. Sair");
         System.out.println("----------------");
-        System.out.println("Digite o número da opção deseja: ");
+        System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
     }
 
     public void casdastroUsuario(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
