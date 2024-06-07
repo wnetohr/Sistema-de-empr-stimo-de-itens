@@ -23,21 +23,21 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o número da opção deseja: ");
     }
 
-    public void selecionarOpcao(GestorEmprestimo gestorEmprestimo, Scanner sc) {
+    public void selecionarOpcao(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         exibirOpcoes();
         String opcao = sc.nextLine();
         switch (opcao) {
             case "1":
-                casdastroItem(gestorEmprestimo, sc);
+                casdastroItem(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "2":
-                casdastroUsuario(gestorEmprestimo, sc);
+                casdastroUsuario(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "3":
-                exibirItensDisponiveis(gestorEmprestimo, sc);
+                exibirItensDisponiveis(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "4":
-                exibirUsuarios();
+                exibirUsuarios(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "5":
                 sairDoMenu();
@@ -45,7 +45,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
         }
     }
 
-    public void casdastroItem(GestorEmprestimo gestorEmprestimo, Scanner sc) {
+    public void casdastroItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         categoriasItem();
         String categoria = sc.nextLine();
         switch (categoria) {
@@ -70,11 +70,11 @@ public class MenuSistema implements MenuSistemaAbstrato {
                 gestorEmprestimo.cadastrarProduto(livro);
                 break;
             case "5":
-                selecionarOpcao(gestorEmprestimo, sc);
+                selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
                 break;
 
         }
-        selecionarOpcao(gestorEmprestimo, sc);
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
 
     }
 
@@ -89,18 +89,21 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o número da opção deseja: ");
     }
 
-    public void casdastroUsuario(GestorEmprestimo gestorEmprestimo, Scanner sc) {
+    public void casdastroUsuario(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         Usuario usuario = new Usuario();
         usuario.cadastrar(sc);
-        selecionarOpcao(gestorEmprestimo, sc);
+        gestorUsuarios.cadastrarUsuario(usuario);
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
     }
 
-    public void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo, Scanner sc) {
+    public void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         System.out.println(gestorEmprestimo.exibirNomeDosItens());
-        selecionarOpcao(gestorEmprestimo, sc);
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
     }
 
-    public void exibirUsuarios() {
+    public void exibirUsuarios(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
+        System.out.println(gestorUsuarios.ExibirNomeDosUsuarios());
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
     }
 
     public void sairDoMenu() {
