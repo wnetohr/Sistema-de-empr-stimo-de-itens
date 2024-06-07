@@ -1,6 +1,7 @@
 package com.example.model;
 
 import java.util.List;
+import java.util.Scanner;
 
 import com.example.util.ItemAbstrato;
 
@@ -8,19 +9,27 @@ public class Usuario {
 
     //Atributos
     private String nome;
-    private int cpf;
-    protected  List<ItemAbstrato> listaItens;
+    private String cpf;
+    protected List<ItemAbstrato> listaItens;
 
     //Construtor
-    public Usuario(){}
+    public Usuario() {
+    }
 
-    public Usuario(String nome, int cpf, List<ItemAbstrato> listaItens) {
+    public Usuario(String nome, String cpf, List<ItemAbstrato> listaItens) {
         this.nome = nome;
         this.cpf = cpf;
         this.listaItens = listaItens;
     }
 
     //Funções
+    public void cadastrar(Scanner sc) {
+        System.out.println("Digite o nome do usuário: ");
+        setNome(sc.nextLine());
+        System.out.println("Digite o CPF do usuário: ");
+        setCpf(sc.nextLine());
+    }
+
     public void adicionarItem(ItemAbstrato item) {
         listaItens.add(item);
     }
@@ -38,11 +47,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

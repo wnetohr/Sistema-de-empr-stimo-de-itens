@@ -16,7 +16,7 @@ public interface MenuSistemaAbstrato {
 
     public abstract void categoriasItem();
 
-    public abstract void casdastroUsuario();
+    public abstract void casdastroUsuario(GestorEmprestimo gestorEmprestimo, Scanner sc);
 
     public abstract void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo, Scanner sc);
 

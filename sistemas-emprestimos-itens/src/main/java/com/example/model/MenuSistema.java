@@ -31,7 +31,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
                 casdastroItem(gestorEmprestimo, sc);
                 break;
             case "2":
-                casdastroUsuario();
+                casdastroUsuario(gestorEmprestimo, sc);
                 break;
             case "3":
                 exibirItensDisponiveis(gestorEmprestimo, sc);
@@ -89,7 +89,10 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o número da opção deseja: ");
     }
 
-    public void casdastroUsuario() {
+    public void casdastroUsuario(GestorEmprestimo gestorEmprestimo, Scanner sc) {
+        Usuario usuario = new Usuario();
+        usuario.cadastrar(sc);
+        selecionarOpcao(gestorEmprestimo, sc);
     }
 
     public void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo, Scanner sc) {
