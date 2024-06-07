@@ -16,9 +16,9 @@ public class Equipamentos implements ItemAbstrato {
     //Construtor
     public Equipamentos() {
     }
+
     //Funções
-    public void cadastrar(){
-        Scanner sc = new Scanner(System.in);
+    public void cadastrar(Scanner sc) {
         System.out.println("Digite o nome do equipamento: ");
         this.nome = sc.nextLine();
         System.out.println("Digite a descrição do equipamento: ");
@@ -30,8 +30,8 @@ public class Equipamentos implements ItemAbstrato {
         System.out.println("Digite a quantidade de equipamentos a serem cadastrados: ");
         this.quantidadeDisponivel = sc.nextInt();
         sc.nextLine();
-        sc.close();
     }
+
     public void emprestar() {
     }
 

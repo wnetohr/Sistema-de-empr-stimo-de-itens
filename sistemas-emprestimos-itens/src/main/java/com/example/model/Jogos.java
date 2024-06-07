@@ -19,8 +19,7 @@ public class Jogos implements ItemAbstrato {
     }
 
     //Funções
-    public void cadastrar() {
-        Scanner sc = new Scanner(System.in);
+    public void cadastrar(Scanner sc) {
         System.out.println("Digite o nome do jogo: ");
         this.nome = sc.nextLine();
         System.out.println("Digite a descrição do jogo: ");
@@ -34,7 +33,6 @@ public class Jogos implements ItemAbstrato {
         System.out.println("Digite a quantidade de jogos: ");
         this.quantidadeDisponivel = sc.nextInt();
         sc.nextLine();
-        sc.close();
     }
 
     public void emprestar() {

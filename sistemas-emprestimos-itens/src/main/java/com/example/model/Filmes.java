@@ -13,11 +13,13 @@ public class Filmes implements ItemAbstrato {
     String genero;
     int duracaoEmMinutos;
     int quantidadeDisponivel;
+
     //Construtor
-    public Filmes(){}
+    public Filmes() {
+    }
+
     //Funções
-    public void cadastrar() {
-        Scanner sc = new Scanner(System.in);
+    public void cadastrar(Scanner sc) {
         System.out.println("Digite o nome do filme: ");
         this.nome = sc.nextLine();
         System.out.println("Digite a descrição do filme: ");
@@ -32,7 +34,6 @@ public class Filmes implements ItemAbstrato {
         System.out.println("Digite a quantidade de filmes a serem cadastrados: ");
         this.quantidadeDisponivel = sc.nextInt();
         sc.nextLine();
-        sc.close();
     }
 
     public void emprestar() {

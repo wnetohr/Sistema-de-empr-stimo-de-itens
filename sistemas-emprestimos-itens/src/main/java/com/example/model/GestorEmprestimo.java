@@ -40,4 +40,12 @@ public class GestorEmprestimo implements GestorEmprestimoAbstrato {
             itensEmprestados.remove(item);
         }
     }
+
+    public List<String> exibirNomeDosItens() {
+        List<String> nomeItens = new ArrayList<String>();
+        for (ItemAbstrato item : itensDisponiveis) {
+            nomeItens.add(item.getNome());
+        }
+        return nomeItens;
+    }
 }

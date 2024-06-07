@@ -14,9 +14,10 @@ public class Livros implements ItemAbstrato {
     int quantidadeDisponivel;
 
     //Construtores
-    public Livros(){}
-    
-    public Livros(String nome, String descricao,String autor, int numeroPaginas, int quantidadeDisponivel) {
+    public Livros() {
+    }
+
+    public Livros(String nome, String descricao, String autor, int numeroPaginas, int quantidadeDisponivel) {
         this.nome = nome;
         this.descricao = descricao;
         this.autor = autor;
@@ -25,8 +26,7 @@ public class Livros implements ItemAbstrato {
     }
 
     //Funções
-    public void cadastrar(){
-        Scanner sc = new Scanner(System.in);
+    public void cadastrar(Scanner sc) {
         System.out.println("Digite o nome do livro: ");
         this.nome = sc.nextLine();
         System.out.println("Digite a descrição do livro: ");
@@ -39,8 +39,8 @@ public class Livros implements ItemAbstrato {
         System.out.println("Digite a quantidade de livros: ");
         this.quantidadeDisponivel = sc.nextInt();
         sc.nextLine();
-        sc.close();
     }
+
     public void emprestar() {
     }
 
