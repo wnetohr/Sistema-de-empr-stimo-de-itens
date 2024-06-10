@@ -26,15 +26,16 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
     }
 
+    @Override
     public void selecionarOpcao(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         exibirOpcoes();
         String opcao = sc.nextLine();
         switch (opcao) {
             case "1":
-                casdastroItem(gestorEmprestimo, gestorUsuarios, sc);
+                cadastroItem(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "2":
-                casdastroUsuario(gestorEmprestimo, gestorUsuarios, sc);
+                cadastroUsuario(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "3":
                 exibirItensDisponiveis(gestorEmprestimo, gestorUsuarios, sc);
@@ -51,7 +52,8 @@ public class MenuSistema implements MenuSistemaAbstrato {
         }
     }
 
-    public void casdastroItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
+    @Override
+    public void cadastroItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         categoriasItem();
         String categoria = sc.nextLine();
         switch (categoria) {
@@ -95,7 +97,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
     }
 
-    public void casdastroUsuario(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
+    public void cadastroUsuario(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         Usuario usuario = new Usuario();
         usuario.cadastrar(sc);
         gestorUsuarios.cadastrarUsuario(usuario);

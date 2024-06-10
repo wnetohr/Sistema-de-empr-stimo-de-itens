@@ -13,11 +13,11 @@ public interface MenuSistemaAbstrato {
 
     public abstract void exibirOpcoes();
 
-    public abstract void casdastroItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc);
+    public abstract void cadastroItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc);
 
     public abstract void categoriasItem();
 
-    public abstract void casdastroUsuario(GestorEmprestimo gestorEmprestimo,GestorUsuarios gestorUsuarios, Scanner sc);
+    public abstract void cadastroUsuario(GestorEmprestimo gestorEmprestimo,GestorUsuarios gestorUsuarios, Scanner sc);
 
     public abstract void exibirItensDisponiveis(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc);
 
