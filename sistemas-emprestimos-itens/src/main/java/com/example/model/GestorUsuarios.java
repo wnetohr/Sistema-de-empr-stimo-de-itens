@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.example.util.ItemAbstrato;
+
 public class GestorUsuarios {
 
     private List<Usuario> listaUsuarios = new ArrayList<>();
@@ -14,19 +16,34 @@ public class GestorUsuarios {
     private Set<Long> idsUtilizados = new HashSet<>();
     private long proximoId = 1;
 
-    public GestorUsuarios() {}
+    public GestorUsuarios() {
+    }
 
     public GestorUsuarios(List<Usuario> listaUsuarios, Map<Long, Usuario> mapaUsuarios) {
         this.listaUsuarios = listaUsuarios;
         this.mapaUsuarios = mapaUsuarios;
     }
-    public List<String> ExibirNomeDosUsuarios(){
+
+    public Usuario buscaUsuario(String cpfDoCliente) {
+        try {
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getCpf().equals(cpfDoCliente)) {
+                    return usuario;
+                }
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<String> ExibirNomeDosUsuarios() {
         List<String> nomeUsuarios = new ArrayList<String>();
         for (Usuario usuario : listaUsuarios) {
             nomeUsuarios.add(usuario.getNome());
         }
         return nomeUsuarios;
     }
+
     public void adicionarUsuarioNaLista(Usuario usuario) {
         listaUsuarios.add(usuario);
     }

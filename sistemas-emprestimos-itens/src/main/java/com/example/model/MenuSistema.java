@@ -3,6 +3,7 @@ package com.example.model;
 
 import java.util.Scanner;
 
+import com.example.util.ItemAbstrato;
 import com.example.util.MenuSistemaAbstrato;
 
 public class MenuSistema implements MenuSistemaAbstrato {
@@ -19,7 +20,8 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("2. Cadastrar usu\u00E1rio");
         System.out.println("3. Exibir itens dispon\u00EDveis");
         System.out.println("4. Exibir usu\u00E1rios");
-        System.out.println("5. Sair do sistema");
+        System.out.println("5. Emprestimo de item");
+        System.out.println("9. Sair do sistema");
         System.out.println("----------------");
         System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
     }
@@ -41,6 +43,9 @@ public class MenuSistema implements MenuSistemaAbstrato {
                 exibirUsuarios(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "5":
+                emprestimoItem(gestorEmprestimo, gestorUsuarios, sc);
+                break;
+            case "9":
                 sairDoMenu();
                 break;
         }
@@ -105,6 +110,23 @@ public class MenuSistema implements MenuSistemaAbstrato {
     public void exibirUsuarios(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
         System.out.println(gestorUsuarios.ExibirNomeDosUsuarios());
         selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
+    }
+
+    public void emprestimoItem(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
+        System.out.println("Digite o CPF do cliente: ");
+        String cpfDocliente = sc.nextLine();
+        Usuario usuario = gestorUsuarios.buscaUsuario(cpfDocliente);
+        System.out.println("Digite o nome do item desejado: ");
+        String nomeDoItem = sc.nextLine();
+        ItemAbstrato item = gestorEmprestimo.buscaItem(nomeDoItem);
+        if (usuario != null && item != null) {
+            gestorEmprestimo.emprestarItem(item, usuario);
+            System.out.println(usuario.getListaItens());
+        } else {
+            System.out.println("Problema no emprestimo de itens!");
+        }
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
+
     }
 
     public void sairDoMenu() {

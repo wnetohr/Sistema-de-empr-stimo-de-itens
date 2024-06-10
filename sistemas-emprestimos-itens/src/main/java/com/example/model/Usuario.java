@@ -1,5 +1,6 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Usuario {
 
     //Construtor
     public Usuario() {
+        this.listaItens = new ArrayList<>();
     }
 
     public Usuario(String nome, String cpf, List<ItemAbstrato> listaItens) {

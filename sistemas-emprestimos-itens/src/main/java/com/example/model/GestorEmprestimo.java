@@ -26,17 +26,19 @@ public class GestorEmprestimo implements GestorEmprestimoAbstrato {
     }
 
     public void emprestarItem(ItemAbstrato item, Usuario usuario) {
-        if (itensDisponiveis.contains(item)) {
+        if (itensDisponiveis.contains(item) && item.getQuantidadeDisponivel() > 0) {
             usuario.adicionarItem(item);
-            itensDisponiveis.remove(item);
+            item.setQuantidadeDisponivel(item.getQuantidadeDisponivel() - 1);
             itensEmprestados.add(item);
+        } else {
+            System.out.println("Item indisponivel no momento!");
         }
     }
 
     public void devolverItem(ItemAbstrato item, Usuario usuario) {
         if (usuario.listaItens.contains(item)) {
             usuario.removerItem(item);
-            itensDisponiveis.add(item);
+            item.setQuantidadeDisponivel(item.getQuantidadeDisponivel() + 1);
             itensEmprestados.remove(item);
         }
     }
@@ -48,4 +50,16 @@ public class GestorEmprestimo implements GestorEmprestimoAbstrato {
         }
         return nomeItens;
     }
+
+    public ItemAbstrato buscaItem(String nomeDoItem) {
+    try {
+        for (ItemAbstrato item : itensDisponiveis) {
+            if (item.getNome().equals(nomeDoItem)) { 
+                return item;
+            }
+        }
+    } catch (Exception e) {}
+    return null; 
+}
+
 }
