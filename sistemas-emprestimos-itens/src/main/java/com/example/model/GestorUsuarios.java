@@ -36,7 +36,27 @@ public class GestorUsuarios {
         return null;
     }
 
-    public List<String> ExibirNomeDosUsuarios() {
+    public List<String> buscaItensUsuario(Usuario usuario) {
+        List<String> nomeItens = new ArrayList<String>();
+        for (ItemAbstrato item : usuario.listaItens) {
+            nomeItens.add(item.getNome());
+        }
+        return nomeItens;
+    }
+
+    public List<String> exibirItensUsuario(String cpfDoCliente) {
+        try {
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getCpf().equals(cpfDoCliente)) {
+                    return buscaItensUsuario(usuario);
+                }
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<String> exibirNomeDosUsuarios() {
         List<String> nomeUsuarios = new ArrayList<String>();
         for (Usuario usuario : listaUsuarios) {
             nomeUsuarios.add(usuario.getNome());

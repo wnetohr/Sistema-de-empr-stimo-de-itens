@@ -21,6 +21,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
         System.out.println("3. Exibir itens dispon\u00EDveis");
         System.out.println("4. Exibir usu\u00E1rios");
         System.out.println("5. Emprestimo de item");
+        System.out.println("6. Exibir itens do usuário");
         System.out.println("9. Sair do sistema");
         System.out.println("----------------");
         System.out.println("Digite o n\u00FAmero da opç\u00E3o deseja: ");
@@ -45,6 +46,9 @@ public class MenuSistema implements MenuSistemaAbstrato {
                 break;
             case "5":
                 emprestimoItem(gestorEmprestimo, gestorUsuarios, sc);
+                break;
+            case "6":
+                exibirItensUsuario(gestorEmprestimo, gestorUsuarios, sc);
                 break;
             case "9":
                 sairDoMenu();
@@ -110,7 +114,7 @@ public class MenuSistema implements MenuSistemaAbstrato {
     }
 
     public void exibirUsuarios(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
-        System.out.println(gestorUsuarios.ExibirNomeDosUsuarios());
+        System.out.println(gestorUsuarios.exibirNomeDosUsuarios());
         selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
     }
 
@@ -129,6 +133,13 @@ public class MenuSistema implements MenuSistemaAbstrato {
         }
         selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
 
+    }
+
+    public void exibirItensUsuario(GestorEmprestimo gestorEmprestimo, GestorUsuarios gestorUsuarios, Scanner sc) {
+        System.out.println("Digite o CPF do cliente: ");
+        String cpfDocliente = sc.nextLine();
+        System.out.println(gestorUsuarios.exibirItensUsuario(cpfDocliente));
+        selecionarOpcao(gestorEmprestimo, gestorUsuarios, sc);
     }
 
     public void sairDoMenu() {
